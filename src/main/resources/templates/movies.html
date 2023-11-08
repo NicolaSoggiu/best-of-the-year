@@ -10,7 +10,7 @@
 <body>
 <h1>Best movies of the year are:</h1>
 <ul>
-    <li th:each="movie : ${getMovies}">
+    <li th:each="movie : ${movies}">
         <span th:text="${movie.title}"></span>
     </li>
 </ul>
