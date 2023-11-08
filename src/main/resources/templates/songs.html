@@ -8,7 +8,12 @@
     <title>Home</title>
 </head>
 <body>
-<h1 th:text="|Best songs of the year are:  ${getBestSongs}|"></h1>
+<h1>The best songs of the year are: </h1>
+<ul>
+    <li th:each="song : ${getSongs}">
+        <span th:text="${song.title}"></span>
+    </li>
+</ul>
 
 </body>
 </html>

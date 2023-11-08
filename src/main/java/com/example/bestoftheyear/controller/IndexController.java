@@ -1,12 +1,14 @@
 package com.example.bestoftheyear.controller;
 
 
+import com.example.bestoftheyear.model.Movie;
+import com.example.bestoftheyear.model.Song;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -21,35 +23,25 @@ public class IndexController {
 
     @GetMapping("movies")
     public String movies(Model model) {
-        List<String> bestMovies = getMovies();
-        String moviesDelimiter = String.join(", ", bestMovies);
-        model.addAttribute("getBestMovies", moviesDelimiter);
+        List<Movie> bestMovies = getMovies();
+        model.addAttribute("getMovies", bestMovies);
         return "movies";
     }
 
     @GetMapping("songs")
     public String songs(Model model) {
-        List<String> bestSongs = getSongs();
-        String songsDelimiter = String.join(",", bestSongs);
-        model.addAttribute("getBestSongs", songsDelimiter);
+        List<Song> bestSongs = getSongs();
+        model.addAttribute("getSongs", bestSongs);
         return "songs";
     }
 
-    private List<String> getMovies() {
-        List<String> movies = new ArrayList<>();
-        movies.add("Film 1");
-        movies.add("Film 2");
-        movies.add("Film 3");
-        movies.add("Film 4");
-        return movies;
+    private List<Movie> getMovies() {
+        Movie[] bestMovies = {new Movie(1, "Harry Potter e il prigioniero di Azkaban"), new Movie(2, "Goodfellas"), new Movie(3, "Inception"), new Movie(4, "Il castello errante di Howl")};
+        return Arrays.asList(bestMovies);
     }
 
-    private List<String> getSongs() {
-        List<String> songs = new ArrayList<>();
-        songs.add("Canzone 1");
-        songs.add("Canzone 2");
-        songs.add("Canzone 3");
-        songs.add("Canzone 4");
-        return songs;
+    private List<Song> getSongs() {
+        Song[] bestSongs = {new Song(1, "Humble"), new Song(2, "Flashing Lights"), new Song(3, "Take Care"), new Song(4, "Circles")};
+        return Arrays.asList(bestSongs);
     }
 }
