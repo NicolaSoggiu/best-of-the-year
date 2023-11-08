@@ -1,5 +1,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+
     <th:block th:fragment="headResources(pageTitle)">
         <meta charset="UTF-8">
         <meta name="viewport"
@@ -10,5 +11,11 @@
         <title th:text="${pageTitle}"></title>
     </th:block>
 </head>
+<body>
 
+<th:block th:fragment="jsResources">
+    <script th:src="@{/webjars/bootstrap/5.3.2/js/bootstrap.bundle.min.js}"></script>
+</th:block>
+
+</body>
 </html>

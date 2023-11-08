@@ -1,8 +1,19 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:insert="/fragments/resources :: headResources('Home')"></head>
+<head th:insert="~{/fragments/resources :: headResources('Home')}"></head>
 <body>
-<nav th:replace="/fragments/navbar :: navbar('home')"></nav>
+<nav th:replace="/fragments/navbar :: navbar"></nav>
 
+<h1 class="text-center mt-5">Best of</h1>
+<div class="card m-auto" style="width: 18rem;">
+    <img th:src="@{/logo.png}"
+         alt="application logo">
+    <div class="card-body">
+        <h5 class="card-title">Lorem</h5>
+        <p class="card-text">Lorem ipsum</p>
+    </div>
+</div>
+
+<th:block th:replace="~{/fragments/resources :: jsResources}"></th:block>
 </body>
 </html>

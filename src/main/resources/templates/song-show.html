@@ -1,15 +1,13 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+<head th:insert="~{/fragments/resources :: headResources('Movies')}"></head>
 <body>
-<h1>Movie Details:</h1>
-<p th:text="|ID: ${song.id}|"></p>
-<h2 th:text="|Title: ${song.title}|"></h2>
+<nav th:replace="/fragments/navbar :: navbar"></nav>
+
+<div class="mt-5 container d-flex flex-column align-items-center">
+    <h1>Song Details:</h1>
+    <p th:text="|ID: ${song.id}|"></p>
+    <h2 th:text="|Title: ${song.title}|"></h2>
+</div>
 </body>
 </html>
