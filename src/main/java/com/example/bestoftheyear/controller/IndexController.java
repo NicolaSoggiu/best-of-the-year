@@ -16,24 +16,6 @@ import java.util.List;
 @RequestMapping("/")
 public class IndexController {
 
-    private Movie getMovieId(int id) {
-        for (Movie movie : getMovies()) {
-            if (movie.getId() == id) {
-                return movie;
-            }
-        }
-        return null;
-    }
-
-    private Song getSongID(int id) {
-        for (Song song : getSongs()) {
-            if (song.getId() == id) {
-                return song;
-            }
-        }
-        return null;
-    }
-
     @GetMapping("home")
     public String getName(Model model) {
         String name = "Nicola";
@@ -77,5 +59,23 @@ public class IndexController {
     private List<Song> getSongs() {
         Song[] bestSongs = {new Song(1, "Humble"), new Song(2, "Flashing Lights"), new Song(3, "Take Care"), new Song(4, "Circles")};
         return Arrays.asList(bestSongs);
+    }
+
+    private Movie getMovieId(int id) {
+        for (Movie movie : getMovies()) {
+            if (movie.getId() == id) {
+                return movie;
+            }
+        }
+        return null;
+    }
+
+    private Song getSongID(int id) {
+        for (Song song : getSongs()) {
+            if (song.getId() == id) {
+                return song;
+            }
+        }
+        return null;
     }
 }
